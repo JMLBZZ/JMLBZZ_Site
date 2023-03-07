@@ -706,14 +706,14 @@ img{
 .swiper-button-prev::after,
 .swiper-button-next::after{
     content: '';
+    display:none;   
 }
 .swiper-portfolio-icon{
     font-size: 2rem;
     color: var(--first-color);
 }
 .swiper-button-prev{
-    left: -.5rem;
-    
+    left: 0;    
 }
 .swiper-button-next{
     right: -.5rem;
@@ -722,7 +722,7 @@ img{
     bottom: -2.5rem;
 }
 .swiper-pagination-bullet-active{
-    background-color: var(--first-color);
+    background-color: var(--first-color) !important;
 }
 .swiper-button-prev,
 .swiper-button-next,
