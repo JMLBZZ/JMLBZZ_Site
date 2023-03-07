@@ -148,7 +148,7 @@
                         </div>
                     </div>
 
-                    <div class="skills__data">
+                    {# <div class="skills__data">
                         <div class="skills__titles">
                             <h3 class="skills__name">PHP/Symfony</h3>
                             <span class="skills__number">40%</span>
@@ -156,7 +156,7 @@
                         <div class="skills__bar">
                             <span class="skills__percentage skills__js"></span>
                         </div>
-                    </div>
+                    </div> #}
 
                     <div class="skills__data">
                         <div class="skills__titles">
@@ -883,33 +883,39 @@
         </div>
 
 <!--==================== FORMULAIRE =====================-->
+
         <form method="post" class="contact__form grid" id="form" enctype="multipart/form-data" onsubmit="return validate()">
+        {{ form_start(form) }}
             <div class="contact__inputs grid">
                 <div class="contact__content">
-                    <label for="" class="contact__label">Nom</label>
-                    <input type="text" class="contact__input" name="name">
+                <label for="" class="contact__label">Nom</label>
+                    {{ form_row(form.name, {'attr': {'class': 'contact__input'}}) }}
                 </div>
+
                 <div class="contact__content">
                     <label for="" class="contact__label">Email</label>
-                    <input type="email" name="email" class="contact__input">
+                    {{ form_row(form.email, {'attr': {'class': 'contact__input'}}) }}
                 </div>
             </div>
             <div class="contact__content">
                 <label for="" class="contact__label">Sujet</label>
-                <input type="text" name="subject" class="contact__input">
+                {{ form_row(form.subject, {'attr': {'class': 'contact__input'}})|raw }}
             </div>
+
             <div class="contact__content">
                 <label for="" class="contact__label">Message</label>
-                <textarea name="message" id="message" cols="0" rows="7" class="contact__input"></textarea>
+                {{ form_row(form.message, {'attr': {'class': 'contact__input', "id": "message"}})|raw }}
             </div>
-            
             <div>
-                <button type="submit" class="button button--flex">
+                <button class="button button--flexk" type="submit" title="Envoyer">
                     Envoyer
                     <i class="uil uil-message button__icon"></i>
                 </button>
             </div>
+        {{ form_end(form) }}
         </form>
+
+        
 <!--================= Fin de formulaire =================-->
     </div>
 

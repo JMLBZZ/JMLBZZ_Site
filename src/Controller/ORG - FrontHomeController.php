@@ -9,14 +9,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Mime\BodyRendererInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class FrontHomeController extends AbstractController
 {
     #[Route('/', name: 'app_front')]
     #[Route('/front/home', name: 'app_front_home')]
-    public function index(Request $request, MailerInterface $mailer, BodyRendererInterface $renderer): Response
+    public function index(Request $request, MailerInterface $mailer): Response
     {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
@@ -40,10 +39,7 @@ class FrontHomeController extends AbstractController
 
             $mailer->send($message);
 
-            $messageHtml = $renderer->render($message);
-
-
-            // $this->addFlash('success', $messageHtml);
+            //$this->addFlash('success', $message->toString());
             $this->addFlash('success', 'Votre message a bien été envoyé');
 
             return $this->redirectToRoute('app_front');
