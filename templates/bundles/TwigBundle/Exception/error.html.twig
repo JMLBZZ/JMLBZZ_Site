@@ -3,9 +3,18 @@
 {% block title %}JMLBZZ - Erreur {{status_code}}{% endblock %}
 
 {% block body %}
-    <h1>Erreur : {{status_code}}</h1>
-    <p>Le code est : {{status_code}}</p>
-    <p>Le texte est : {{status_text}}</p>
-    <a href="../#contact">Contact</a>
-    <a href="../#home">Retour à la page d'accueil</a>
+<div class="soon__container">
+    <div class="soon__background">
+        <!--<video src="background.mp4" muted autoplay loop></video>-->
+        <img src="{{asset("img/soon_bg_photo.png")}}" alt="background photo">
+    </div>
+
+    <h1 class="soon__title">Erreur : {{status_code}}</h1>
+    <h3>{{status_text}}</h3>
+
+    <div class="soon__sm">
+        <a href="{{ path('app_front') }}#home"><i class="fa-solid fa-house"></i></a>
+        <a href="{{ path('app_front') }}#contact"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+</div>
 {% endblock %}
