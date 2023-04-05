@@ -938,8 +938,8 @@ textarea{
 
 .footer__links {
   display: flex;
-  flex-direction: column;
-  row-gap: 1.5rem;
+  flex-direction: row;
+  column-gap: 1rem;
 }
 
 .footer__link:hover {
@@ -1213,7 +1213,7 @@ textarea{
   }
   .footer__links {
     flex-direction: row;
-    column-gap: 2rem;
+    row-gap: 1rem;
   }
   .footer__socials {
     justify-self: flex-end;
